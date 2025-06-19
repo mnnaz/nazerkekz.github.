@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Заголовок с изображением</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+    }
+    .main-header {
+      background-color: #4CAF50;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .logo {
+      width: 50px;
+      height: 50px;
+      margin-right: 15px;
+    }
+    .title {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFtwB0ulyG5ZWNLJVmKblQ340HNQD8aVwp7Q&s"
+      alt="Логотип"
+      class="logo"
+    />
+    <h1 class="title">Добро пожаловать на мой сайт</h1>
+  </header>
+</body>
+</html>
