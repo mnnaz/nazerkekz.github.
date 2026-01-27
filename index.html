@@ -4,40 +4,49 @@
 <meta charset="UTF-8">
 <title>ВСЕ ЧТО Я ЛЮБЛЮ</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<!-- Романтичный шрифт -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 
 body{
     margin:0;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Great Vibes', cursive;
 }
 
 /* блок с картинкой */
 .hero{
     width:100%;
-    height:90vh;
+    height:75vh;   /* уменьшили фото */
     background-image: url("assets/г5.jpeg");
     background-size: cover;
-    background-position: top;
+    background-position: center top;
     display:flex;
     align-items:center;
     justify-content:center;
+    position:relative;
 }
 
-/* красивый текст */
-.title{
-    font-size:44px;
-    color:#ffffff;
+/* лёгкий тёмный слой */
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: rgba(0,0,0,0.25);
+}
 
-    -webkit-text-stroke: 1.2px #ff5fa2;
+/* романтичный текст */
+.title{
+    position:relative;
+    font-size:52px;
+    color:#fff0f6;
+
+    letter-spacing:4px;
 
     text-shadow:
-      0 0 5px #ff9ad5,
-      0 0 10px #ff69b4,
-      0 0 20px #ff69b4;
-
-    letter-spacing:6px;
+      0 0 8px #ffb6d9,
+      0 0 15px #ff8fc7,
+      0 0 30px #ff69b4;
 }
 
 </style>
