@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>ВСЕ ЧТО Я ЛЮБЛЮ</title>
 
-<!-- Красивый шрифт -->
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
@@ -12,16 +11,16 @@
 body{
     margin:0;
     min-height:100vh;
-    background-image: url("background.jpg");
+    background-image: url("assets/г1.jpeg");
     background-size: cover;
     background-position: center;
     display:flex;
-    align-items:flex-start;
     justify-content:center;
+    align-items:flex-start;
     font-family: 'Pacifico', cursive;
 }
 
-/* затемнение */
+/* затемнение всего фона */
 .overlay{
     width:100%;
     min-height:100vh;
@@ -33,17 +32,31 @@ body{
 /* блок заголовка */
 .title-box{
     margin-top:60px;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(8px);
-    padding:30px 50px;
-    border-radius:25px;
-    box-shadow:0 0 25px rgba(0,0,0,0.6);
+    background-image: url("assets/г1.jpeg");
+    background-size: cover;
+    background-position: center;
+    padding:40px 60px;
+    border-radius:30px;
+    position:relative;
+    box-shadow:0 0 30px rgba(0,0,0,0.8);
 }
 
+/* прозрачный слой поверх картинки */
+.title-box::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: rgba(0,0,0,0.4);
+    border-radius:30px;
+}
+
+/* текст */
 h1{
-    font-size:48px;
+    position:relative;
     color:white;
+    font-size:48px;
     margin:0;
+    text-align:center;
 }
 
 </style>
@@ -52,9 +65,9 @@ h1{
 <body>
 
 <div class="overlay">
-  <div class="title-box">
-    <h1>ВСЕ ЧТО Я ЛЮБЛЮ ❤️❤️</h1>
-  </div>
+    <div class="title-box">
+        <h1>ВСЕ ЧТО Я ЛЮБЛЮ ❤️❤️❤️</h1>
+    </div>
 </div>
 
 </body>
