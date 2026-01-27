@@ -10,52 +10,36 @@
 
 body{
     margin:0;
-    min-height:100vh;
-    background-image: url("assets/г1.jpeg");
-    background-size: cover;
-    background-position: center;
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
     font-family: 'Pacifico', cursive;
 }
 
-/* затемнение всего фона */
-.overlay{
+/* блок с картинкой */
+.hero{
     width:100%;
-    min-height:100vh;
-    background: rgba(0,0,0,0.55);
-    display:flex;
-    justify-content:center;
-}
-
-/* блок заголовка */
-.title-box{
-    margin-top:60px;
+    height:100vh;
     background-image: url("assets/г1.jpeg");
     background-size: cover;
     background-position: center;
-    padding:40px 60px;
-    border-radius:30px;
-    position:relative;
-    box-shadow:0 0 30px rgba(0,0,0,0.8);
+    position: relative;
 }
 
-/* прозрачный слой поверх картинки */
-.title-box::before{
+/* лёгкое затемнение */
+.hero::after{
     content:"";
     position:absolute;
     inset:0;
-    background: rgba(0,0,0,0.4);
-    border-radius:30px;
+    background: rgba(0,0,0,0.35);
 }
 
-/* текст */
-h1{
-    position:relative;
+/* текст поверх */
+.title{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
     color:white;
-    font-size:48px;
-    margin:0;
+    font-size:56px;
+    z-index:1;
     text-align:center;
 }
 
@@ -64,10 +48,8 @@ h1{
 
 <body>
 
-<div class="overlay">
-    <div class="title-box">
-        <h1>ВСЕ ЧТО Я ЛЮБЛЮ ❤️❤️❤️</h1>
-    </div>
+<div class="hero">
+    <div class="title">ВСЕ ЧТО Я ЛЮБЛЮ ❤️❤️</div>
 </div>
 
 </body>
