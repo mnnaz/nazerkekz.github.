@@ -200,3 +200,128 @@ function startFireworks() {
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>love edit 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+  }
+
+  /* 🎬 фон-вайб */
+  .bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("assets/36.jpeg") center/cover no-repeat;
+    filter: brightness(0.6);
+    animation: zoom 10s ease-in-out infinite alternate;
+  }
+
+  @keyframes zoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+  }
+
+  /* 💖 текст клипа */
+  .text {
+    position: relative;
+    color: white;
+    text-align: center;
+    z-index: 2;
+    animation: fadeIn 3s ease;
+  }
+
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 90px;
+    text-shadow: 0 0 25px pink;
+    animation: pulse 2.5s infinite;
+  }
+
+  p {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    opacity: 0.9;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); text-shadow: 0 0 10px pink; }
+    50% { transform: scale(1.05); text-shadow: 0 0 30px pink; }
+    100% { transform: scale(1); text-shadow: 0 0 10px pink; }
+  }
+
+  /* 💗 сердечки */
+  .heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 20px;
+    color: pink;
+    animation: floatUp linear infinite;
+    z-index: 3;
+  }
+
+  @keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-110vh); opacity: 0; }
+  }
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="text">
+  <h1>всегда говори мне да 💖</h1>
+  <p>это не просьба… это чувство</p>
+</div>
+
+<!-- 🎵 Скриптонит -->
+<div style="display:none;">
+  <iframe
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/6xMw5N7_spo?start=16&autoplay=1&loop=1&playlist=6xMw5N7_spo"
+    allow="autoplay">
+  </iframe>
+</div>
+
+<script>
+
+/* 💗 сердечки */
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 180);
+
+</script>
+
+</body>
+</html>
