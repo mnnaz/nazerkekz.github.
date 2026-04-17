@@ -25,11 +25,12 @@
       color: white;
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(8px);
+      z-index: 2;
     }
 
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 85px;
+      font-size: 80px;
       margin-bottom: 10px;
       animation: fadeIn 2s ease;
       text-shadow: 0 0 10px rgba(255,255,255,0.9), 0 0 20px pink;
@@ -37,36 +38,12 @@
 
     p {
       font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      animation: fadeIn 3s ease;
+      font-size: 22px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .pulse {
-      animation: pulse 2.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    .heart {
-      position: absolute;
-      bottom: -20px;
-      color: pink;
-      font-size: 20px;
-      animation: floatUp linear infinite;
-    }
-
-    @keyframes floatUp {
-      from { transform: translateY(0); opacity: 1; }
-      to { transform: translateY(-110vh); opacity: 0; }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      margin-top: 20px;
     }
 
     button {
@@ -94,65 +71,85 @@
     }
 
     #result {
-      margin-top: 20px;
+      margin-top: 15px;
       font-size: 22px;
       font-family: 'Great Vibes', cursive;
       color: pink;
+    }
+
+    /* 💗 сердечки */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      color: pink;
+      font-size: 20px;
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    /* 💌 финальный экран */
+    #loveScreen {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 9999;
+    }
+
+    #loveScreen div {
+      color: white;
+      font-size: 42px;
+      font-family: 'Great Vibes', cursive;
+      text-shadow: 0 0 20px pink;
     }
   </style>
 </head>
 
 <body>
 
+<!-- 💖 основной экран -->
 <div class="overlay">
-  <h1 class="pulse">Султанчик-llovvvveeeee 💖</h1>
-  <p>Сайт қалай,Ереке? 🥹</p>
+  <h1>Султанчик 💖</h1>
+  <p>Как тебе сайт? 🥹</p>
 
-  <h2 style="font-family: 'Playfair Display', serif; margin-top: 25px;">
-    do u want meee, baaabeeee 💕
-  </h2>
+  <h2>Ты меня любишь? 💕</h2>
 
   <div>
-    <button class="yes" onclick="yesLove()">ДА 💖</button>
-    <button class="no" onclick="noLove()">НЕТ 💔</button>
+    <button class="yes" onclick="yesLove()">Да 💖</button>
+    <button class="no" onclick="noLove()">Нет 💔</button>
   </div>
 
   <p id="result"></p>
 </div>
 
+<!-- 💌 финальный экран -->
+<div id="loveScreen">
+  <div>
+    Я знал(а) это 💞<br><br>
+    Я тоже тебя люблю 💖
+  </div>
+</div>
+
 <script>
 function yesLove() {
+  document.getElementById("loveScreen").style.display = "flex";
   document.getElementById("result").innerHTML =
-    "Білдім ғой иессссс дейтініңді 💞🥹";
+    "💖 теперь мы вместе 💖";
 }
 
 function noLove() {
   document.getElementById("result").innerHTML =
-    "…💔 басылмайды бұл бәрібір";
-}
-
-/* 💗 сердечки */
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "💗";
-
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-  heart.style.fontSize = (15 + Math.random() * 20) + "px";
-
-  document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 6000);
-}
-
-setInterval(createHeart, 300);
-<script>
-function yesLove() {
-  document.getElementById("result").innerHTML =
-    "Я тоже тебя люблю 💞🥹";
+    "…💔 но я всё равно люблю тебя";
 }
 
 /* 💔 кнопка убегает */
