@@ -16,7 +16,7 @@ body {
   background: url("assets/WhatsApp Image 2026-04-17 at 14.06.21.jpeg") no-repeat center/cover;
 }
 
-/* 💖 главный блок */
+/* 💖 основной блок */
 .overlay {
   padding: 40px;
   border-radius: 25px;
@@ -53,27 +53,33 @@ button {
   color: #ff4d88;
 }
 
+/* 💖 ответ снизу */
 #result {
-  margin-top: 15px;
-  font-size: 22px;
+  margin-top: 20px;
+  font-size: 26px;
   font-family: 'Great Vibes', cursive;
   color: pink;
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
 }
 
-/* 💍 финальный экран */
-#loveScreen {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  color: white;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index: 9999;
-  font-size: 40px;
-  font-family: 'Great Vibes', cursive;
-  text-shadow: 0 0 25px pink;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 💗 сердечки */
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 20px;
+  color: pink;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-110vh); opacity: 0; }
 }
 
 /* 💥 фейерверк */
@@ -92,33 +98,15 @@ button {
   100% { transform: scale(25); opacity: 0; }
 }
 
-/* 💗 сердечки */
-.heart {
-  position: absolute;
-  bottom: -20px;
-  font-size: 20px;
-  color: pink;
-  animation: floatUp linear infinite;
-}
-
-@keyframes floatUp {
-  from { transform: translateY(0); opacity: 1; }
-  to { transform: translateY(-110vh); opacity: 0; }
-}
-
-/* 📸 ФОТО БЛОК (ПОЧИНЕННЫЙ) */
+/* 📸 фото */
 .photo-card {
   width: 320px;
   margin: 80px auto;
   text-align: center;
-
   padding: 25px;
   border-radius: 25px;
-
   background: rgba(255,255,255,0.12);
   backdrop-filter: blur(12px);
-
-  box-shadow: 0 0 25px rgba(255,192,203,0.3);
 }
 
 .photo-card h1 {
@@ -131,7 +119,6 @@ button {
 .photo-card img {
   width: 100%;
   border-radius: 20px;
-  box-shadow: 0 0 25px rgba(255,192,203,0.6);
   transition: 0.3s;
 }
 
@@ -156,12 +143,7 @@ button {
   <p id="result"></p>
 </div>
 
-<!-- 💍 ФИНАЛ -->
-<div id="loveScreen">
-  білем ғой сенің оооо иииесссс дейтініңді 💖
-</div>
-
-<!-- 📸 ФОТО БЛОК -->
+<!-- 📸 ФОТО -->
 <div class="photo-card">
   <h1>всегда мне говори дададаааа 💖</h1>
   <img src="assets/36.jpeg">
@@ -180,9 +162,11 @@ button {
 
 <script>
 
+/* 💖 НАЖАЛ ДА */
 function yesLove() {
-  document.getElementById("loveScreen").style.display = "flex";
-  document.getElementById("result").innerHTML = "💖 теперь мы вместе 💖";
+  document.getElementById("result").innerHTML =
+    "💖 я знала что ты скажешь ДА 💖";
+
   startFireworks();
 
   const music = document.getElementById("music");
