@@ -114,62 +114,33 @@ setInterval(createHeart, 300);
 
 </body>
 </html>
-<div class="overlay">
 
-  <h1 class="title">Ты — моё всё 💖</h1>
 
-  <p class="question">Тебе хорошо со мной? 🫶💖</p>
+<body>
+  <div class="card">
+    <h1>Скажи мне…</h1>
+    <p>Любишь ли ты меня? 💗</p>
 
-  <div class="content">
+    <div class="buttons">
+      <button class="yes" onclick="answer(true)">Да 💖</button>
+      <button class="no" onclick="answer(false)">Нет 💔</button>
+    </div>
 
-    <button class="btn yes" onclick="yes()">Да 💖</button>
-    <button class="btn no" onclick="no()">Нет 😌</button>
-
-    <p id="answer" class="answer"></p>
-
+    <div class="result" id="result"></div>
   </div>
 
-</div>
-.overlay {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
+  <script>
+    function answer(isYes) {
+      const result = document.getElementById("result");
 
-.question {
-  font-family: 'Great Vibes', cursive;
-  font-size: 42px;
-  margin: 10px 0;
-  color: white;
-  text-shadow: 0 0 10px pink;
-}
+      if (isYes) {
+        result.innerHTML = "Я знала… 💞<br>Я тоже тебя люблю.";
+      } else {
+        result.innerHTML = "…💔<br>Я всё равно буду тебя любить.";
+      }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.yes {
-  background: pink;
-  color: white;
-}
-
-.no {
-  background: white;
-  color: pink;
-}
-
-.answer {
-  font-size: 20px;
-  margin-top: 10px;
-}
+      result.style.display = "block";
+    }
+  </script>
+</body>
+</html>
