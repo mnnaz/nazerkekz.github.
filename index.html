@@ -53,7 +53,7 @@ button {
   color: #ff4d88;
 }
 
-/* 💖 ответ снизу */
+/* 💖 результат */
 #result {
   margin-top: 20px;
   font-size: 26px;
@@ -103,8 +103,10 @@ button {
   width: 320px;
   margin: 80px auto;
   text-align: center;
+
   padding: 25px;
   border-radius: 25px;
+
   background: rgba(255,255,255,0.12);
   backdrop-filter: blur(12px);
 }
@@ -149,31 +151,37 @@ button {
   <img src="assets/36.jpeg">
 </div>
 
-<!-- 🎵 МУЗЫКА -->
+<!-- 🎵 СКРИПТОНИТ -->
 <div style="display:none;">
-  <iframe 
-    id="music"
+  <iframe id="musicFrame"
     width="0"
     height="0"
-    src="https://www.youtube.com/embed/lUz4R5rNzsU?autoplay=1&loop=1&playlist=lUz4R5rNzsU"
+    src=""
     allow="autoplay">
   </iframe>
 </div>
 
 <script>
 
-/* 💖 НАЖАЛ ДА */
+/* 💖 НАЖАТИЕ ДА */
 function yesLove() {
   document.getElementById("result").innerHTML =
-    "💖 я знала что ты скажешь ДА 💖";
+    "💖 білем ғой сенің оооо иессссс дейтініңді 💖";
 
   startFireworks();
 
-  const music = document.getElementById("music");
-  music.src = music.src;
+  // 🎵 Скриптонит 16–36 сек
+  const frame = document.getElementById("musicFrame");
+
+  frame.src = "https://www.youtube.com/embed/6xMw5N7_spo?start=16&autoplay=1";
+
+  // ⏱ стоп через 20 секунд
+  setTimeout(() => {
+    frame.src = "";
+  }, 20000);
 }
 
-/* 💔 убегающая кнопка */
+/* 💔 кнопка убегает */
 function runAway(btn) {
   btn.style.position = "absolute";
   btn.style.left = Math.random() * 80 + "vw";
