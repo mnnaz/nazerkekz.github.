@@ -109,12 +109,12 @@
   <p>Сайт қалай,Ереке? 🥹</p>
 
   <h2 style="font-family: 'Playfair Display', serif; margin-top: 25px;">
-    Сен мени жақсы көресің бе? 💕
+    do u want meee, baaabeeee 💕
   </h2>
 
   <div>
-    <button class="yes" onclick="yesLove()">Иә 💖</button>
-    <button class="no" onclick="noLove()">Жоқ 💔</button>
+    <button class="yes" onclick="yesLove()">ДА 💖</button>
+    <button class="no" onclick="noLove()">НЕТ 💔</button>
   </div>
 
   <p id="result"></p>
@@ -123,12 +123,12 @@
 <script>
 function yesLove() {
   document.getElementById("result").innerHTML =
-    "Мен де сені жақсы көремін 💞🥹";
+    "Білдім ғой иессссс дейтініңді 💞🥹";
 }
 
 function noLove() {
   document.getElementById("result").innerHTML =
-    "…💔 бәрібір мен сені жақсы көремін";
+    "…💔 басылмайды бұл бәрібір";
 }
 
 /* 💗 сердечки */
@@ -149,6 +149,42 @@ function createHeart() {
 }
 
 setInterval(createHeart, 300);
+<script>
+function yesLove() {
+  document.getElementById("result").innerHTML =
+    "Я тоже тебя люблю 💞🥹";
+}
+
+/* 💔 кнопка убегает */
+const noBtn = document.querySelector(".no");
+
+noBtn.addEventListener("mouseover", function () {
+  const x = Math.random() * (window.innerWidth - 120);
+  const y = Math.random() * (window.innerHeight - 120);
+
+  noBtn.style.position = "absolute";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+/* 💗 сердечки */
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+  heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 250);
 </script>
 
 </body>
