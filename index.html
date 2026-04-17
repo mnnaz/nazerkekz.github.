@@ -18,14 +18,12 @@
     background: url("assets/WhatsApp Image 2026-04-17 at 14.06.21.jpeg") no-repeat center/cover;
   }
 
-  /* 🌫 стекло */
   .overlay {
     padding: 40px;
     border-radius: 25px;
     color: white;
     background: rgba(255,255,255,0.15);
     backdrop-filter: blur(12px);
-    z-index: 10;
   }
 
   h1 {
@@ -78,7 +76,7 @@
     to { transform: translateY(-110vh); opacity: 0; }
   }
 
-  /* 💌 финал */
+  /* 💍 финальный экран */
   #loveScreen {
     display: none;
     position: fixed;
@@ -93,7 +91,7 @@
     text-shadow: 0 0 25px pink;
   }
 
-  /* 💥 СВАДЕБНЫЙ ФЕЙЕРВЕРК */
+  /* 💥 фейерверк */
   .firework {
     position: fixed;
     width: 8px;
@@ -115,9 +113,9 @@
 
 <div class="overlay">
   <h1>Султанчик 💖</h1>
-  <p>Как тебе сайт? 🥹</p>
+  <p>Ты меня любишь? 🥹</p>
 
-  <h2>Ты меня любишь? 💕</h2>
+  <h2>Честно ответь 💕</h2>
 
   <button class="yes" onclick="yesLove()">Да 💖</button>
   <button class="no" onclick="noLove()">Нет 💔</button>
@@ -125,23 +123,39 @@
   <p id="result"></p>
 </div>
 
-<!-- 💌 финальный экран -->
+<!-- 💍 финальный экран -->
 <div id="loveScreen">
   Я знал(а) это 💞<br>
   Я тоже тебя люблю 💖
 </div>
 
+<!-- 🎵 INSOMNIA AKHA -->
+<div style="display:none;">
+  <iframe 
+    id="music"
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/lUz4R5rNzsU?autoplay=1&loop=1&playlist=lUz4R5rNzsU"
+    allow="autoplay">
+  </iframe>
+</div>
+
 <script>
 
-/* 💖 YES */
 function yesLove() {
   document.getElementById("loveScreen").style.display = "flex";
   document.getElementById("result").innerHTML = "💖 теперь мы вместе 💖";
 
   startFireworks();
+
+  // 🎵 музыка
+  const music = document.getElementById("music");
+  if (music) {
+    music.src = music.src;
+  }
 }
 
-/* 💔 NO убегает */
+/* 💔 кнопка убегает */
 const noBtn = document.querySelector(".no");
 
 noBtn.addEventListener("mouseover", () => {
@@ -165,7 +179,7 @@ function createHeart() {
 }
 setInterval(createHeart, 200);
 
-/* 💥 СВАДЕБНЫЙ ФЕЙЕРВЕРК */
+/* 💥 фейерверк */
 function startFireworks() {
   for (let i = 0; i < 60; i++) {
     const fw = document.createElement("div");
@@ -180,15 +194,6 @@ function startFireworks() {
 
     setTimeout(() => fw.remove(), 1000);
   }
-
-  setInterval(() => {
-    const fw = document.createElement("div");
-    fw.className = "firework";
-    fw.style.left = Math.random() * 100 + "vw";
-    fw.style.top = Math.random() * 100 + "vh";
-    document.body.appendChild(fw);
-    setTimeout(() => fw.remove(), 1000);
-  }, 300);
 }
 
 </script>
