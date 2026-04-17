@@ -114,33 +114,35 @@ setInterval(createHeart, 300);
 
 </body>
 </html>
-<div class="overlay">
+<div class="questionBlock">
 
-  <!-- ТЕМА САЙТА -->
-  <h1 class="title">Ты — моё всё 💖</h1>
-
-  <!-- ВОПРОС НИЖЕ -->
   <p class="question">
     Тебе хорошо со мной? 🫶💖
   </p>
 
-  <!-- КНОПКИ -->
-  <button onclick="yes()" class="btn yes">Да 💖</button>
-  <button onclick="no()" class="btn no">Нет 😌</button>
+  <button class="yes" onclick="yes()">Да 💖</button>
+  <button class="no" onclick="no()">Нет 😌</button>
 
-  <!-- ОТВЕТ -->
   <p id="answer" class="answer"></p>
 
-  <!-- ПИСЬМО -->
-  <div id="letter" class="letter">
-    Я очень рада, что ты это выбрал(а) 💖<br>
-    Ты делаешь меня счастливее каждый день 🥹💕
-  </div>
-
 </div>
-.overlay {
+.questionBlock {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
+  margin-top: 20px;
   text-align: center;
+}
+
+.question {
+  font-family: 'Great Vibes', cursive;
+  font-size: 42px;
+  color: white;
+
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.9),
+    0 0 20px pink;
+
+  margin: 0;
 }
