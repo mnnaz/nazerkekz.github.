@@ -115,78 +115,32 @@ setInterval(createHeart, 300);
 </body>
 </html>
 <body>
+<body>
 
-<div class="container">
-
+<header class="hero">
   <h1 class="title">Ты — моё всё 💖</h1>
+</header>
 
-  <p class="question">
-    Тебе хорошо со мной? 🫶💖
-  </p>
+<main class="content">
 
-  <div class="buttons">
-    <button onclick="yes()" class="btn yes">Да 💖</button>
-    <button onclick="no()" class="btn no">Нет 😌</button>
-  </div>
+  <section class="block">
+    <p class="question">
+      Тебе хорошо со мной? 🫶💖
+    </p>
 
-  <p id="answer" class="answer"></p>
+    <div class="buttons">
+      <button onclick="yes()" class="btn yes">Да 💖</button>
+      <button onclick="no()" class="btn no">Нет 😌</button>
+    </div>
 
-  <div id="letter" class="letter">
+    <p id="answer" class="answer"></p>
+  </section>
+
+  <section id="letter" class="letter">
     Я очень рада, что ты это выбрал(а) 💖<br>
     Ты делаешь меня счастливее каждый день 🥹💕
-  </div>
+  </section>
 
-</div>
+</main>
 
 </body>
-.container {
-  text-align: center;
-  margin-top: 15vh;
-}
-
-.question {
-  font-size: 20px;
-  margin-top: 10px;
-  color: #444;
-}
-
-.buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.btn {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-.yes {
-  background: #ff4d88;
-  color: white;
-}
-
-.no {
-  background: #ddd;
-  color: #333;
-}
-
-.answer {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #d63384;
-}
-
-.letter {
-  margin-top: 20px;
-  padding: 15px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  display: none;
-}
