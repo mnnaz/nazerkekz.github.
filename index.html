@@ -1,128 +1,52 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>ВСЕ ЧТО Я ЛЮБЛЮ</title>
+  <meta charset="UTF-8">
+  <title>Наша любовь 💕</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&display=swap" rel="stylesheet">
 
-<style>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
 
-body{
-    margin:0;
-    font-family: 'Great Vibes', cursive;
+      /* путь к папке assets */
+      background: url("assets/WhatsApp Image 2026-04-17 at 14.06.21.jpeg") no-repeat center/cover;
 
-    /* романтичный фон */
-    background:
-      radial-gradient(circle at 10% 20%, #ffd6e8 0%, transparent 40%),
-      radial-gradient(circle at 90% 80%, #ffc1dc 0%, transparent 40%),
-      linear-gradient(180deg, #ffe6f2, #ffcce0);
-}
+      font-family: 'Montserrat', sans-serif;
+    }
 
-/* ===== ВЕРХ ===== */
+    .overlay {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 50px;
+      border-radius: 25px;
+      color: white;
+      backdrop-filter: blur(6px);
+    }
 
-.hero{
-    width:100%;
-    height:75vh;
-    background-image: url("assets/г5.jpeg");
-    background-size: cover;
-    background-position: center top;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-}
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 70px;
+      margin-bottom: 10px;
+    }
 
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background: rgba(0,0,0,0.25);
-}
-
-.title{
-    position:relative;
-    font-size:52px;
-    color:#fff0f6;
-    letter-spacing:4px;
-    text-shadow:
-      0 0 8px #ffb6d9,
-      0 0 15px #ff8fc7,
-      0 0 30px #ff69b4;
-}
-
-/* ===== НИЗ ===== */
-
-.bottom{
-    padding:80px 20px;
-    text-align:center;
-}
-
-.text-block{
-    font-size:44px;
-    color:#ff4f9a;
-    margin:40px 0;
-    letter-spacing:3px;
-    text-shadow:
-      0 0 6px #ffb6d9,
-      0 0 12px #ff69b4;
-}
-
-.bottom img{
-    width:260px;
-    border-radius:30px;
-    box-shadow:
-      0 0 15px rgba(255,105,180,0.6),
-      0 0 35px rgba(255,105,180,0.4);
-}
-
-</style>
+    p {
+      font-size: 22px;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ВЕРХ -->
-<div class="hero">
-    <div class="title">❤️ ВСЕ ЧТО Я ЛЮБЛЮ ❤️</div>
-</div>
-
-<!-- НИЗ -->
-<div class="bottom">
-
-    <div class="text-block">
-        💖 ЕҢ БІРІНШІ - МЕН ӨЗІМ 💖
-    </div>
-
-    <img src="assets/7.jpeg" alt="me">
-
-    <div class="text-block">
-        💕 СОСЫН СЕН СУЛТАНЧИК 🫵🏻 💕
-    </div>
-
-    <img src="assets/6.jpeg" alt="you">
-
-</div>
+  <div class="overlay">
+    <h1>Султанчиккк 💖</h1>
+    <p>как тебе сайт?🥹</p>
+  </div>
 
 </body>
 </html>
-<!-- МЕНЮ -->
-<div class="menu">
-    <a href="#drinks">🥤 Напитки</a>
-    <a href="#choco">🍫 Шоколадки</a>
-    <a href="#food">🍔 Тамақ</a>
-</div>
-
-<!-- НАПИТКИ -->
-<div id="drinks" class="section">
-    <h2>🥤 Напитки</h2>
-</div>
-
-<!-- ШОКОЛАДКИ -->
-<div id="choco" class="section">
-    <h2>🍫 Шоколадки</h2>
-</div>
-
-<!-- ТАМАҚ -->
-<div id="food" class="section">
-    <h2>🍔 Тамақ</h2>
-</div>
