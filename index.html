@@ -1,116 +1,115 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Наша любовь 💕</title>
+  <meta charset="UTF-8">
+  <title>Наша любовь 💕</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
 
-<style>
-body {
-  margin: 0;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
 
-  background: url("assets/WhatsApp Image 2026-04-17 at 14.06.21.jpeg") no-repeat center/cover;
-}
+      background: url("assets/WhatsApp Image 2026-04-17 at 14.06.21.jpeg") no-repeat center/cover;
+    }
 
-/* карточка */
-.box {
-  padding: 40px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(8px);
-  color: white;
-  transition: 0.3s;
-}
+    .overlay {
+      padding: 40px;
+      border-radius: 20px;
+      color: white;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      z-index: 2;
+    }
 
-/* заголовок */
-h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 70px;
-}
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 85px;
+      margin-bottom: 10px;
 
-/* кнопки */
-button {
-  margin: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 16px;
-}
+      animation: fadeIn 2s ease;
 
-/* 💖 разные состояния */
-.love {
-  background: pink;
-  color: white;
-}
+      text-shadow: 
+        0 0 10px rgba(255,255,255,0.9),
+        0 0 20px pink;
+    }
 
-.no {
-  background: white;
-  color: pink;
-}
+    p {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      animation: fadeIn 3s ease;
+    }
 
-/* скрытый текст */
-#secret {
-  display: none;
-  margin-top: 15px;
-  font-size: 18px;
-}
+    /* 💫 появление */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-/* 💗 сердечки */
-.heart {
-  position: absolute;
-  font-size: 20px;
-  animation: float 4s linear forwards;
-}
+    /* 💗 пульсация */
+    .pulse {
+      animation: pulse 2.5s infinite;
+    }
 
-@keyframes float {
-  from { transform: translateY(0); opacity: 1; }
-  to { transform: translateY(-120vh); opacity: 0; }
-}
-</style>
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* 💖 сердечки */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      color: pink;
+      font-size: 20px;
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="box">
-  <h1>do u want me? 💖</h1>
-
-  <button class="love" onclick="yes()">Да 🥹</button>
-  <button class="no" onclick="no()">Нет 😈</button>
-
-  <div id="secret">білем ғой мен иесссс екенін 😏💗</div>
+<div class="overlay">
+  <h1 class="pulse">Ты — моё всё 💖</h1>
+  <p>С тобой мой мир стал красивее 🥹</p>
 </div>
 
 <script>
-function yes() {
-  document.getElementById("secret").style.display = "block";
-  spawnHearts();
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+  heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
 }
 
-function no() {
-  alert("Не обманывай 😭💔");
-}
-
-/* 💗 сердечки */
-function spawnHearts() {
-  setInterval(() => {
-    const h = document.createElement("div");
-    h.className = "heart";
-    h.innerHTML = "💗";
-    h.style.left = Math.random() * 100 + "vw";
-    h.style.top = "100vh";
-    document.body.appendChild(h);
-
-    setTimeout(() => h.remove(), 4000);
-  }, 200);
-}
+setInterval(createHeart, 300);
 </script>
 
 </body>
