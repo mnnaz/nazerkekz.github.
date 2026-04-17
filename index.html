@@ -114,3 +114,229 @@ setInterval(createHeart, 300);
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffe6f0, #fff0f5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  max-width: 600px;
+  z-index: 2;
+}
+
+.title {
+  font-size: 34px;
+  color: #d63384;
+  animation: fadeDown 1s ease;
+}
+
+.question {
+  font-size: 20px;
+  color: #444;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.yes {
+  background: #ff4d88;
+  color: white;
+}
+
+.no {
+  background: #ddd;
+  color: #333;
+  position: absolute;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.answer {
+  margin-top: 15px;
+  color: #d63384;
+  font-size: 18px;
+}
+
+/* КОНВЕРТ */
+.envelope {
+  margin: 30px auto;
+  width: 200px;
+  height: 120px;
+  background: #fff;
+  border: 2px solid #ff4d88;
+  border-radius: 10px;
+  position: relative;
+  display: none;
+  animation: pop 0.8s ease;
+}
+
+.envelope:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-top: 60px solid #ff4d88;
+}
+
+.letter {
+  display: none;
+  margin-top: 10px;
+  padding: 15px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  animation: fadeIn 1s ease;
+}
+
+/* анимации */
+@keyframes fadeDown {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes pop {
+  from {transform: scale(0.5); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* сердечки */
+.heart {
+  position: absolute;
+  color: #ff4d88;
+  font-size: 20px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  from {transform: translateY(-10vh); opacity: 1;}
+  to {transform: translateY(110vh); opacity: 0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1 class="title">Ты — моё всё 💖</h1>
+
+  <p class="question">Тебе хорошо со мной? 🫶</p>
+
+  <button class="btn yes" onclick="yes()">Да 💖</button>
+  <button class="btn no" id="noBtn">Нет 😌</button>
+
+  <p id="answer" class="answer"></p>
+
+  <div class="envelope" id="envelope"></div>
+
+  <div class="letter" id="letter">
+    💌<br><br>
+    Я очень рада, что ты выбрал(а) “Да” 💖<br>
+    Ты делаешь мою жизнь теплее 🥹✨<br>
+    Спасибо, что ты есть 💕
+  </div>
+</div>
+
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a3b2c7.mp3?filename=romantic-music-ambient-110809.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+// музыка при первом клике
+document.body.addEventListener("click", () => {
+  document.getElementById("music").play();
+}, { once: true });
+
+// сердечки
+function heartRain() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💖";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+  heart.style.fontSize = (10 + Math.random() * 20) + "px";
+
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 5000);
+}
+
+// поток сердечек
+setInterval(heartRain, 200);
+
+// YES
+function yes() {
+  document.getElementById("answer").innerHTML = "Я знала… 💖🥹";
+
+  document.getElementById("envelope").style.display = "block";
+
+  setTimeout(() => {
+    document.getElementById("letter").style.display = "block";
+  }, 800);
+
+  bigHeartExplosion();
+}
+
+// большой взрыв сердечек
+function bigHeartExplosion() {
+  for (let i = 0; i < 30; i++) {
+    setTimeout(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = Math.random() * 100 + "vh";
+      heart.style.fontSize = "25px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 2000);
+    }, i * 50);
+  }
+}
+
+// NO убегает
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+  noBtn.style.position = "absolute";
+});
+
+</script>
+
+</body>
+</html>
