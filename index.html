@@ -9,13 +9,10 @@
 <style>
   body {
     margin: 0;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    min-height: 100vh;
+    overflow-x: hidden;
     background: url("assets/WhatsApp Image 2026-04-17 at 14.06.21.jpeg") no-repeat center/cover;
+    font-family: 'Playfair Display', serif;
   }
 
   .overlay {
@@ -24,16 +21,15 @@
     color: white;
     background: rgba(255,255,255,0.15);
     backdrop-filter: blur(12px);
+    text-align: center;
+    width: fit-content;
+    margin: 80px auto;
   }
 
   h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 80px;
     text-shadow: 0 0 20px pink;
-  }
-
-  p, h2 {
-    font-family: 'Playfair Display', serif;
   }
 
   button {
@@ -58,8 +54,24 @@
   #result {
     margin-top: 15px;
     font-size: 22px;
-    font-family: 'Great Vibes', cursive;
     color: pink;
+    font-family: 'Great Vibes', cursive;
+  }
+
+  /* 💍 финал экран */
+  #loveScreen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9999;
+    font-size: 40px;
+    font-family: 'Great Vibes', cursive;
+    text-shadow: 0 0 25px pink;
   }
 
   /* 💗 сердечки */
@@ -74,21 +86,6 @@
   @keyframes floatUp {
     from { transform: translateY(0); opacity: 1; }
     to { transform: translateY(-110vh); opacity: 0; }
-  }
-
-  /* 💍 финальный экран */
-  #loveScreen {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.75);
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    color: white;
-    font-size: 48px;
-    font-family: 'Great Vibes', cursive;
-    text-shadow: 0 0 25px pink;
   }
 
   /* 💥 фейерверк */
@@ -106,36 +103,89 @@
     0% { transform: scale(1); opacity: 1; }
     100% { transform: scale(25); opacity: 0; }
   }
+
+  /* 💖 НОВЫЙ КЛИП-БЛОК ВНИЗУ */
+  .clip-stage {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin-top: 100px;
+  }
+
+  .clip-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("assets/36.jpeg") center/cover no-repeat;
+    filter: brightness(0.5);
+    animation: zoom 10s ease-in-out infinite alternate;
+  }
+
+  .clip-text {
+    position: relative;
+    z-index: 2;
+    color: white;
+  }
+
+  .clip-text h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 90px;
+    text-shadow: 0 0 25px pink;
+    animation: pulse 2.5s infinite;
+  }
+
+  @keyframes zoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+  }
+
+  @keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.08);}
+    100% {transform: scale(1);}
+  }
+
 </style>
 </head>
 
 <body>
 
+<!-- 💖 ОСНОВНОЙ БЛОК -->
 <div class="overlay">
-  <h1>Султанчик-lllooovveeeee💖</h1>
+
+  <h1>Султанчик-lllooovveeeee 💖</h1>
   <p>do u want me, bbaaabbeeeee? 🥹</p>
 
   <h2>ұялмай айта бер 💕</h2>
 
   <button class="yes" onclick="yesLove()">Да 💖</button>
-  <button class="no" onclick="noLove()">Нет 💔</button>
+  <button class="no">Нет 💔</button>
 
   <p id="result"></p>
 </div>
 
-<!-- 💍 финальный экран -->
+<!-- 💍 ФИНАЛ -->
 <div id="loveScreen">
-  білем ғой сенің оооо иииесссс дейтініңді<br>
-   💖
+  білем ғой сенің оооо иииесссс дейтініңді 💖
 </div>
 
-<!-- 🎵 INSOMNIA AKHA -->
+<!-- 💖 КЛИП-БЛОК ВНИЗУ -->
+<div class="clip-stage">
+  <div class="clip-bg"></div>
+  <div class="clip-text">
+    <h1>всегда говори мне да 💖</h1>
+  </div>
+</div>
+
+<!-- 🎵 СКРИПТОНИТ -->
 <div style="display:none;">
-  <iframe 
-    id="music"
+  <iframe
     width="0"
     height="0"
-    src="https://www.youtube.com/embed/lUz4R5rNzsU?autoplay=1&loop=1&playlist=lUz4R5rNzsU"
+    src="https://www.youtube.com/embed/6xMw5N7_spo?start=16&autoplay=1&loop=1&playlist=6xMw5N7_spo"
     allow="autoplay">
   </iframe>
 </div>
@@ -145,24 +195,8 @@
 function yesLove() {
   document.getElementById("loveScreen").style.display = "flex";
   document.getElementById("result").innerHTML = "💖 теперь мы вместе 💖";
-
   startFireworks();
-
-  // 🎵 музыка
-  const music = document.getElementById("music");
-  if (music) {
-    music.src = music.src;
-  }
 }
-
-/* 💔 кнопка убегает */
-const noBtn = document.querySelector(".no");
-
-noBtn.addEventListener("mouseover", () => {
-  noBtn.style.position = "absolute";
-  noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
-  noBtn.style.top = Math.random() * (window.innerHeight - 100) + "px";
-});
 
 /* 💗 сердечки */
 function createHeart() {
@@ -177,6 +211,7 @@ function createHeart() {
 
   setTimeout(() => heart.remove(), 6000);
 }
+
 setInterval(createHeart, 200);
 
 /* 💥 фейерверк */
@@ -188,8 +223,6 @@ function startFireworks() {
     fw.style.left = Math.random() * 100 + "vw";
     fw.style.top = Math.random() * 100 + "vh";
 
-    fw.style.background = Math.random() > 0.5 ? "pink" : "white";
-
     document.body.appendChild(fw);
 
     setTimeout(() => fw.remove(), 1000);
@@ -199,3 +232,4 @@ function startFireworks() {
 </script>
 
 </body>
+</html>
