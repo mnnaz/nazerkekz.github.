@@ -25,19 +25,14 @@
       color: white;
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(8px);
-      z-index: 2;
     }
 
     h1 {
       font-family: 'Great Vibes', cursive;
       font-size: 85px;
       margin-bottom: 10px;
-
       animation: fadeIn 2s ease;
-
-      text-shadow: 
-        0 0 10px rgba(255,255,255,0.9),
-        0 0 20px pink;
+      text-shadow: 0 0 10px rgba(255,255,255,0.9), 0 0 20px pink;
     }
 
     p {
@@ -46,13 +41,11 @@
       animation: fadeIn 3s ease;
     }
 
-    /* 💫 появление */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* 💗 пульсация */
     .pulse {
       animation: pulse 2.5s infinite;
     }
@@ -63,7 +56,6 @@
       100% { transform: scale(1); }
     }
 
-    /* 💖 сердечки */
     .heart {
       position: absolute;
       bottom: -20px;
@@ -73,14 +65,39 @@
     }
 
     @keyframes floatUp {
-      from {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-110vh);
-        opacity: 0;
-      }
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    button {
+      padding: 12px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .yes {
+      background: #ff4d88;
+      color: white;
+    }
+
+    .no {
+      background: white;
+      color: #ff4d88;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 22px;
+      font-family: 'Great Vibes', cursive;
+      color: pink;
     }
   </style>
 </head>
@@ -90,9 +107,31 @@
 <div class="overlay">
   <h1 class="pulse">Султанчик-llovvvveeeee 💖</h1>
   <p>Сайт қалай,Ереке? 🥹</p>
+
+  <h2 style="font-family: 'Playfair Display', serif; margin-top: 25px;">
+    Сен мени жақсы көресің бе? 💕
+  </h2>
+
+  <div>
+    <button class="yes" onclick="yesLove()">Иә 💖</button>
+    <button class="no" onclick="noLove()">Жоқ 💔</button>
+  </div>
+
+  <p id="result"></p>
 </div>
 
 <script>
+function yesLove() {
+  document.getElementById("result").innerHTML =
+    "Мен де сені жақсы көремін 💞🥹";
+}
+
+function noLove() {
+  document.getElementById("result").innerHTML =
+    "…💔 бәрібір мен сені жақсы көремін";
+}
+
+/* 💗 сердечки */
 function createHeart() {
   const heart = document.createElement("div");
   heart.className = "heart";
@@ -112,109 +151,5 @@ function createHeart() {
 setInterval(createHeart, 300);
 </script>
 
-</body>
-</html>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #ffe6f0, #fff5f8);
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .card {
-      text-align: center;
-      background: rgba(255, 255, 255, 0.7);
-      padding: 50px;
-      border-radius: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      backdrop-filter: blur(8px);
-    }
-
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 48px;
-      color: #d63384;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 20px;
-      color: #555;
-      margin-bottom: 30px;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    button {
-      padding: 12px 30px;
-      font-size: 18px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .yes {
-      background: #ff4d88;
-      color: white;
-    }
-
-    .yes:hover {
-      background: #e6005c;
-      transform: scale(1.05);
-    }
-
-    .no {
-      background: #f1f1f1;
-      color: #333;
-    }
-
-    .no:hover {
-      background: #ddd;
-      transform: scale(1.05);
-    }
-
-    .result {
-      margin-top: 25px;
-      font-size: 22px;
-      color: #d63384;
-      display: none;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="card">
-    <h1>Скажи мне…</h1>
-    <p>Любишь ли ты меня? 💗</p>
-
-    <div class="buttons">
-      <button class="yes" onclick="answer(true)">Да 💖</button>
-      <button class="no" onclick="answer(false)">Нет 💔</button>
-    </div>
-
-    <div class="result" id="result"></div>
-  </div>
-
-  <script>
-    function answer(isYes) {
-      const result = document.getElementById("result");
-
-      if (isYes) {
-        result.innerHTML = "Я знала… 💞<br>Я тоже тебя люблю.";
-      } else {
-        result.innerHTML = "…💔<br>Я всё равно буду тебя любить.";
-      }
-
-      result.style.display = "block";
-    }
-  </script>
 </body>
 </html>
