@@ -199,3 +199,48 @@ function startFireworks() {
 </script>
 
 </body>
+<div class="photo-card">
+  <h1>всегда мне говори дададаааа 💖</h1>
+  <img src="assets/36.jpeg" alt="photo">
+</div>
+.photo-card {
+  width: 320px;
+  margin: 80px auto;
+  text-align: center;
+
+  padding: 25px;
+  border-radius: 25px;
+
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 0 25px rgba(255,192,203,0.3);
+
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+.photo-card h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 40px;
+  color: white;
+  text-shadow: 0 0 20px pink;
+  margin-bottom: 15px;
+}
+
+.photo-card img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255,192,203,0.6);
+  transition: 0.3s;
+}
+
+.photo-card img:hover {
+  transform: scale(1.05);
+}
+
+/* 💖 лёгкое движение */
+@keyframes floatCard {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
