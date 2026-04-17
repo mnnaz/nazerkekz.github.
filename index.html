@@ -203,7 +203,7 @@ function startFireworks() {
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>всегда говори мне да 💖</title>
+<title>final love 💖</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
 
@@ -216,53 +216,63 @@ body {
   background: black;
 }
 
-/* 🎬 фон */
+/* 🎬 кино-фон */
 .bg {
   position: absolute;
   width: 100%;
   height: 100%;
   background: url("assets/36.jpeg") center/cover no-repeat;
-  filter: brightness(0.45);
-  transform: scale(1.1);
-  animation: zoom 10s ease-in-out infinite alternate;
+  filter: brightness(0.45) contrast(1.1);
+  transform: scale(1.05);
+  animation: slowZoom 12s ease-in-out infinite alternate;
 }
 
-@keyframes zoom {
-  from {transform: scale(1.05);}
-  to {transform: scale(1.15);}
+/* 🌙 мягкий zoom как в фильмах */
+@keyframes slowZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.15); }
 }
 
-/* 💖 текст */
+/* 💖 центр текст */
 .center {
   position: relative;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   text-align: center;
-  color: white;
   z-index: 2;
+  flex-direction: column;
+  color: white;
+  animation: fadeIn 2s ease;
 }
 
+/* 💖 главный текст */
 .center h1 {
   font-family: 'Great Vibes', cursive;
   font-size: 100px;
-  text-shadow: 0 0 25px pink;
+  text-shadow: 0 0 25px pink, 0 0 60px rgba(255,105,180,0.6);
   animation: pulse 2.5s infinite;
 }
 
+/* 💌 подпись */
 .center p {
   font-family: 'Playfair Display', serif;
   font-size: 18px;
   opacity: 0.9;
 }
 
-/* ✨ анимации */
+/* ✨ появление */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 💖 пульс */
 @keyframes pulse {
-  0% {transform: scale(1);}
-  50% {transform: scale(1.08);}
-  100% {transform: scale(1);}
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
 }
 
 /* 💗 сердечки */
@@ -272,37 +282,23 @@ body {
   font-size: 20px;
   color: pink;
   animation: floatUp linear infinite;
+  z-index: 3;
 }
 
 @keyframes floatUp {
-  from {transform: translateY(0); opacity: 1;}
-  to {transform: translateY(-110vh); opacity: 0;}
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-110vh); opacity: 0; }
 }
 
-/* 🎬 интро */
-#intro {
-  position: fixed;
+/* 🎬 лёгкий “шум кино” */
+.noise {
+  position: absolute;
   width: 100%;
   height: 100%;
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 9999;
-  color: white;
-  cursor: pointer;
-}
-
-#intro h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 50px;
-  text-shadow: 0 0 20px pink;
-}
-
-#intro p {
-  font-family: 'Playfair Display', serif;
-  opacity: 0.7;
+  background: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.08;
+  z-index: 1;
+  pointer-events: none;
 }
 
 </style>
@@ -310,37 +306,25 @@ body {
 
 <body>
 
-<!-- 🎬 ИНТРО -->
-<div id="intro" onclick="start()">
-  <h1>нажми чтобы начать 💖</h1>
-  <p>всегда говори мне да</p>
-</div>
-
-<!-- 💖 ОСНОВА -->
 <div class="bg"></div>
+<div class="noise"></div>
 
 <div class="center">
   <h1>всегда говори мне да 💖</h1>
-  <p>и это уже не вопрос… это чувство</p>
+  <p>и это уже не фраза… это судьба</p>
 </div>
 
-<!-- 🎵 музыка -->
-<div id="music"></div>
+<!-- 🎵 Скриптонит -->
+<div style="display:none;">
+  <iframe
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/6xMw5N7_spo?start=16&autoplay=1&loop=1&playlist=6xMw5N7_spo"
+    allow="autoplay">
+  </iframe>
+</div>
 
 <script>
-
-/* 💖 старт */
-function start() {
-  document.getElementById("intro").style.display = "none";
-
-  const iframe = document.createElement("iframe");
-  iframe.width = 0;
-  iframe.height = 0;
-  iframe.src = "https://www.youtube.com/embed/6xMw5N7_spo?start=16&autoplay=1&loop=1&playlist=6xMw5N7_spo";
-  iframe.allow = "autoplay";
-
-  document.body.appendChild(iframe);
-}
 
 /* 💗 сердечки */
 function createHeart() {
@@ -350,6 +334,7 @@ function createHeart() {
 
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+  heart.style.fontSize = (15 + Math.random() * 20) + "px";
 
   document.body.appendChild(heart);
 
