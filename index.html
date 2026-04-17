@@ -114,48 +114,85 @@ setInterval(createHeart, 300);
 
 </body>
 </html>
-<div class="overlay">
+<p class="fade-text">
+  do u wantttt meee babeee? 🫶💖 
+</p>
 
-  <p style="font-size:24px; margin-bottom:20px;">
-    do u want me? 🫶💖
-  </p>
+<button onclick="yes()" class="btn yes">Да 💖</button>
+<button onclick="no()" class="btn no">Нет 😌</button>
 
-  <button onclick="yes()" style="
-    padding:10px 20px;
-    margin:10px;
-    border:none;
-    border-radius:20px;
-    background:pink;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-  ">
-    Да 💖
-  </button>
+<p id="answer" class="answer"></p>
+/* плавное появление текста */
+.fade-text {
+  font-size: 24px;
+  margin: 15px 0;
+  animation: fadeIn 2s ease;
+}
 
-  <button onclick="no()" style="
-    padding:10px 20px;
-    margin:10px;
-    border:none;
-    border-radius:20px;
-    background:white;
-    color:pink;
-    font-size:16px;
-    cursor:pointer;
-  ">
-    Нет 😌
-  </button>
+/* кнопки */
+.btn {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-  <p id="answer" style="margin-top:15px; font-size:20px;"></p>
+.btn:hover {
+  transform: scale(1.1);
+}
 
-</div>
+/* цвета кнопок */
+.yes {
+  background: pink;
+  color: white;
+}
 
+.no {
+  background: white;
+  color: pink;
+}
+
+/* ответ */
+.answer {
+  margin-top: 15px;
+  font-size: 20px;
+  animation: fadeIn 1s ease;
+}
+
+/* анимация появления */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* сердечки */
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
 <script>
 function yes() {
-  document.getElementById("answer").innerHTML = "білем ғой сенің иееесссс дейтініңді 💖🥹";
+  document.getElementById("answer").innerHTML = "білем ғой сенің иееессс дейтініңді💖🥹";
+
+  for (let i = 0; i < 15; i++) {
+    const heart = document.createElement("div");
+    heart.innerHTML = "💗";
+    heart.style.position = "absolute";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "100vh";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    heart.style.animation = "floatUp 3s linear forwards";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 3000);
+  }
 }
 
 function no() {
-  document.getElementById("answer").innerHTML = "қызық болғасын бастын ба ааааа , жоқ десең көтсің 😭💔";
+  document.getElementById("answer").innerHTML = "қызық болғасын бастың бааа аааа, жоұ десең көтсің 😭💔";
 }
 </script>
