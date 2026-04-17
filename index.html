@@ -15,7 +15,6 @@
       align-items: center;
       text-align: center;
 
-      /* путь к папке assets */
       background: url("assets/WhatsApp Image 2026-04-17 at 14.06.21.jpeg") no-repeat center/cover;
 
       font-family: 'Montserrat', sans-serif;
@@ -29,23 +28,52 @@
       backdrop-filter: blur(6px);
     }
 
+    /* 💖 АНИМАЦИЯ ЗАГОЛОВКА */
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 70px;
+      font-size: 80px;
       margin-bottom: 10px;
+
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 2s ease forwards;
+
+      text-shadow: 0 0 10px pink, 0 0 20px pink;
+    }
+
+    /* плавное появление */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     p {
       font-size: 22px;
+      opacity: 0;
+      animation: fadeIn 3s ease forwards;
     }
+
+    /* 💗 пульсирующий эффект */
+    .love {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
   </style>
 </head>
 
 <body>
 
   <div class="overlay">
-    <h1>Султанчиккк 💖</h1>
-    <p>как тебе сайт?🥹</p>
+    <h1 class="love">Султанчик, ты — моя любовь 💖</h1>
+    <p>сайт қалай? 🥹</p>
   </div>
 
 </body>
