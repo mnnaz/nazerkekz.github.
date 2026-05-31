@@ -238,3 +238,75 @@ h1 {
     font-size: 36px;
   }
 }
+/* ЦЕЛЬ И ЗАДАЧИ */
+
+.goal {
+  padding: 120px 8%;
+  background: #f8fafc;
+}
+
+.goal-box {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  background: white;
+  padding: 60px;
+  border-radius: 32px;
+  box-shadow: 0 20px 60px rgba(15,23,42,.08);
+}
+
+.goal-tag {
+  color: #2563eb;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.goal-box h2 {
+  margin: 25px 0;
+  font-size: 48px;
+  line-height: 1.1;
+  color: #0f172a;
+}
+
+.goal-box p {
+  color: #64748b;
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+.goal-list {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
+}
+
+.goal-item {
+  background: #eff6ff;
+  padding: 18px;
+  border-radius: 16px;
+  color: #0f172a;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.goal-item:hover {
+  transform: translateY(-5px);
+  background: #dbeafe;
+}
+
+@media(max-width:900px){
+
+  .goal-box{
+    padding:35px;
+  }
+
+  .goal-box h2{
+    font-size:32px;
+  }
+
+  .goal-list{
+    grid-template-columns:1fr;
+  }
+
+}
