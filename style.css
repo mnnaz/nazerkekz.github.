@@ -636,4 +636,49 @@ h1 {
   .results-title h2 {
     font-size: 36px;
   }
+}/* CONCLUSION */
+
+.conclusion {
+  padding: 120px 8%;
+  background: #f8fafc;
+}
+
+.conclusion-box {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 70px;
+  border-radius: 36px;
+  background: white;
+  box-shadow: 0 25px 80px rgba(15,23,42,.1);
+  text-align: center;
+}
+
+.conclusion-box span {
+  color: #2563eb;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.conclusion-box h2 {
+  margin: 24px 0;
+  font-size: 52px;
+  line-height: 1.1;
+  color: #0f172a;
+}
+
+.conclusion-box p {
+  color: #64748b;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-top: 18px;
+}
+
+@media(max-width:900px){
+  .conclusion-box {
+    padding: 35px;
+  }
+
+  .conclusion-box h2 {
+    font-size: 34px;
+  }
 }
