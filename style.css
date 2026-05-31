@@ -510,3 +510,130 @@ h1 {
   display: block;
   border-radius: 30px;
 }
+/* RESULTS */
+
+.results {
+  padding: 120px 8%;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+}
+
+.results-title {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 70px;
+}
+
+.results-title span {
+  color: #93c5fd;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.results-title h2 {
+  margin-top: 20px;
+  font-size: 54px;
+  line-height: 1.1;
+}
+
+.results-title p {
+  margin-top: 24px;
+  color: rgba(255,255,255,.75);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.result-card {
+  padding: 34px;
+  border-radius: 28px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.16);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 25px 70px rgba(0,0,0,.25);
+  animation: fadeUp 1s ease both;
+}
+
+.result-card h3 {
+  font-size: 46px;
+  margin-bottom: 12px;
+}
+
+.result-card p {
+  color: rgba(255,255,255,.78);
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.18);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 999px;
+  background: #60a5fa;
+  animation: growBar 1.8s ease forwards;
+}
+
+.fill-35 { width: 35%; }
+.fill-42 { width: 42%; }
+.fill-28 { width: 28%; }
+
+.circle-chart {
+  width: 120px;
+  height: 120px;
+  margin-top: 10px;
+  border-radius: 50%;
+  background:
+    conic-gradient(#60a5fa 0 96%, rgba(255,255,255,.18) 96% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: popIn 1.2s ease both;
+}
+
+.circle-chart span {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+@keyframes growBar {
+  from { width: 0; }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(.75);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media(max-width:900px){
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .results-title h2 {
+    font-size: 36px;
+  }
+}
