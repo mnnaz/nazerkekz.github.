@@ -1,224 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Наша любовь 💖</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
-
-<style>
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  background: url("assets/WhatsApp Image 2026-04-17 at 14.06.21.jpeg") no-repeat center/cover;
-}
-
-/* 💖 основной блок */
-.overlay {
-  padding: 40px;
-  border-radius: 25px;
-  color: white;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(12px);
-  text-align: center;
-  width: fit-content;
-  margin: 80px auto;
-}
-
-h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 80px;
-  text-shadow: 0 0 20px pink;
-}
-
-button {
-  padding: 12px 25px;
-  margin: 10px;
-  border: none;
-  border-radius: 30px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.yes {
-  background: #ff4d88;
-  color: white;
-}
-
-.no {
-  background: white;
-  color: #ff4d88;
-}
-
-/* 💖 результат */
-#result {
-  margin-top: 20px;
-  font-size: 26px;
-  font-family: 'Great Vibes', cursive;
-  color: pink;
-  opacity: 0;
-  animation: fadeIn 0.8s forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* 💗 сердечки */
-.heart {
-  position: absolute;
-  bottom: -20px;
-  font-size: 20px;
-  color: pink;
-  animation: floatUp linear infinite;
-}
-
-@keyframes floatUp {
-  from { transform: translateY(0); opacity: 1; }
-  to { transform: translateY(-110vh); opacity: 0; }
-}
-
-/* 💥 фейерверк */
-.firework {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: pink;
-  animation: explode 1s ease-out forwards;
-  z-index: 9998;
-}
-
-@keyframes explode {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(25); opacity: 0; }
-}
-
-/* 📸 фото */
-.photo-card {
-  width: 320px;
-  margin: 80px auto;
-  text-align: center;
-
-  padding: 25px;
-  border-radius: 25px;
-
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(12px);
-}
-
-.photo-card h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 40px;
-  color: white;
-  text-shadow: 0 0 20px pink;
-}
-
-.photo-card img {
-  width: 100%;
-  border-radius: 20px;
-  transition: 0.3s;
-}
-
-.photo-card img:hover {
-  transform: scale(1.05);
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Thesis Defense</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- 💖 ОСНОВА -->
-<div class="overlay">
+<section class="hero">
+  <div class="dark-overlay"></div>
 
-  <h1>Султанчик-lllooovveeeee💖</h1>
-  <p>do u want me, bbaaabbeeeee? 🥹</p>
+  <div class="hero-content">
+    <p class="small-title">Дипломная работа • Digital Defense Website</p>
 
-  <button class="yes" onclick="yesLove()">Да 💖</button>
-  <button class="no" onmouseover="runAway(this)">Нет 💔</button>
+    <h1>
+      Использование искусственного интеллекта
+      для повышения эффективности обучения студентов
+    </h1>
 
-  <p id="result"></p>
-</div>
+    <p class="subtitle">
+      Интерактивная сайт-презентация дипломного проекта с современным дизайном,
+      анимацией и визуальным представлением результатов исследования.
+    </p>
 
-<!-- 📸 ФОТО -->
-<div class="photo-card">
-  <h1>всегда мне говори дададаааа 💖</h1>
-  <img src="assets/36.jpeg">
-</div>
+    <div class="info-box">
+      <p><strong>Автор:</strong> Алия Нуржанова</p>
+      <p><strong>Научный руководитель:</strong> Айгуль Садыкова</p>
+      <p><strong>Год:</strong> 2026</p>
+    </div>
 
-<!-- 🎵 СКРИПТОНИТ -->
-<div style="display:none;">
-  <iframe id="musicFrame"
-    width="0"
-    height="0"
-    src=""
-    allow="autoplay">
-  </iframe>
-</div>
-
-<script>
-
-/* 💖 НАЖАТИЕ ДА */
-function yesLove() {
-  document.getElementById("result").innerHTML =
-    "💖 білем ғой сенің оооо иессссс дейтініңді 💖";
-
-  startFireworks();
-
-  // 🎵 Скриптонит 16–36 сек
-  const frame = document.getElementById("musicFrame");
-
-  frame.src = "https://www.youtube.com/embed/6xMw5N7_spo?start=16&autoplay=1";
-
-  // ⏱ стоп через 20 секунд
-  setTimeout(() => {
-    frame.src = "";
-  }, 20000);
-}
-
-/* 💔 кнопка убегает */
-function runAway(btn) {
-  btn.style.position = "absolute";
-  btn.style.left = Math.random() * 80 + "vw";
-  btn.style.top = Math.random() * 80 + "vh";
-}
-
-/* 💗 сердечки */
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "💗";
-
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-
-  document.body.appendChild(heart);
-
-  setTimeout(() => heart.remove(), 6000);
-}
-setInterval(createHeart, 200);
-
-/* 💥 фейерверк */
-function startFireworks() {
-  for (let i = 0; i < 60; i++) {
-    const fw = document.createElement("div");
-    fw.className = "firework";
-
-    fw.style.left = Math.random() * 100 + "vw";
-    fw.style.top = Math.random() * 100 + "vh";
-
-    document.body.appendChild(fw);
-
-    setTimeout(() => fw.remove(), 1000);
-  }
-}
-
-</script>
+    <div class="buttons">
+      <a href="#intro" class="btn main-btn">Начать просмотр</a>
+      <a href="#" class="btn second-btn">Скачать PDF</a>
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
