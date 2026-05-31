@@ -682,3 +682,66 @@ h1 {
     font-size: 34px;
   }
 }
+/* FINAL SECTION */
+
+.final-section {
+  padding: 140px 8%;
+  background: #0f172a;
+  text-align: center;
+  color: white;
+}
+
+.final-tag {
+  color: #93c5fd;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.final-section h2 {
+  margin-top: 20px;
+  font-size: 64px;
+}
+
+.final-section p {
+  margin-top: 20px;
+  color: rgba(255,255,255,.75);
+  font-size: 18px;
+}
+
+.final-buttons {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.final-btn {
+  padding: 18px 32px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: white;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.15);
+  backdrop-filter: blur(14px);
+  transition: .3s;
+}
+
+.final-btn:hover {
+  transform: translateY(-5px);
+}
+
+.qr-box {
+  margin-top: 70px;
+}
+
+.qr-box img {
+  width: 220px;
+  border-radius: 20px;
+  background: white;
+  padding: 12px;
+}
+
+.qr-box p {
+  margin-top: 20px;
+}
