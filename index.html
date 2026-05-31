@@ -208,40 +208,95 @@
 
 <section class="results">
   <div class="container">
+
     <div class="results-title">
-      <span>06 • Результаты исследования</span>
-      <h2>Эффективность AI-ассистента</h2>
+      <span>06 • Research Dashboard</span>
+      <h2>Визуальные результаты исследования</h2>
       <p>
-        После внедрения концепции AI-ассистента были получены положительные
-        показатели по скорости обучения, удобству и вовлечённости студентов.
+        Данные представлены в формате интерактивного аналитического дашборда:
+        эффективность, вовлечённость и удовлетворённость студентов.
       </p>
     </div>
 
-    <div class="results-grid">
-      <div class="result-card">
-        <h3>+35%</h3>
-        <p>Ускорение поиска информации</p>
-        <div class="bar"><div class="fill fill-35"></div></div>
+    <div class="dashboard">
+
+      <div class="metric-card">
+        <h3>85%</h3>
+        <p>Студентов готовы использовать AI в обучении</p>
       </div>
 
-      <div class="result-card">
+      <div class="metric-card">
         <h3>+42%</h3>
-        <p>Рост удовлетворённости студентов</p>
-        <div class="bar"><div class="fill fill-42"></div></div>
+        <p>Рост удовлетворённости учебным процессом</p>
       </div>
 
-      <div class="result-card">
-        <h3>-28%</h3>
-        <p>Сокращение времени подготовки</p>
-        <div class="bar"><div class="fill fill-28"></div></div>
+      <div class="chart-card big">
+        <h3>Сравнение эффективности обучения</h3>
+
+        <div class="bar-chart">
+          <div class="bar-row">
+            <span>До AI</span>
+            <div class="bar-line"><div class="bar-fill before"></div></div>
+            <b>48%</b>
+          </div>
+
+          <div class="bar-row">
+            <span>После AI</span>
+            <div class="bar-line"><div class="bar-fill after"></div></div>
+            <b>83%</b>
+          </div>
+
+          <div class="bar-row">
+            <span>Самостоятельность</span>
+            <div class="bar-line"><div class="bar-fill self"></div></div>
+            <b>76%</b>
+          </div>
+        </div>
       </div>
 
-      <div class="result-card">
-        <h3>4.8/5</h3>
-        <p>Оценка удобства системы</p>
-        <div class="circle-chart"><span>96%</span></div>
+      <div class="chart-card donut-card">
+        <h3>Удовлетворённость студентов</h3>
+
+        <div class="donut">
+          <span>76%</span>
+        </div>
+
+        <p>Положительная оценка AI-ассистента</p>
       </div>
+
+      <div class="chart-card line-card">
+        <h3>Рост эффективности за 5 недель</h3>
+
+        <div class="line-chart">
+          <svg viewBox="0 0 500 220">
+            <polyline
+              points="20,180 120,145 220,120 320,80 460,35"
+              fill="none"
+              stroke="#60a5fa"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <circle cx="20" cy="180" r="8"></circle>
+            <circle cx="120" cy="145" r="8"></circle>
+            <circle cx="220" cy="120" r="8"></circle>
+            <circle cx="320" cy="80" r="8"></circle>
+            <circle cx="460" cy="35" r="8"></circle>
+          </svg>
+
+          <div class="weeks">
+            <span>1 нед.</span>
+            <span>2 нед.</span>
+            <span>3 нед.</span>
+            <span>4 нед.</span>
+            <span>5 нед.</span>
+          </div>
+        </div>
+      </div>
+
     </div>
+
   </div>
 </section>
 
