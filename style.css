@@ -490,3 +490,23 @@ h1 {
     font-size: 38px;
   }
 }
+/* VIDEO SECTION */
+
+.video-section {
+  padding: 120px 8%;
+  background: #ffffff;
+}
+
+.video-box {
+  max-width: 1100px;
+  margin: 60px auto 0;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 25px 80px rgba(15,23,42,.15);
+}
+
+.video-box video {
+  width: 100%;
+  display: block;
+  border-radius: 30px;
+}
